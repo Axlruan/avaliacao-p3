@@ -1,0 +1,33 @@
+using System;
+
+class Programa
+{
+    static void Main()
+    {
+        Leitura da data e hora de início
+        Console.WriteLine("Digite a data de início no formato 'dia DD': ");
+        string diaInicio = Console.ReadLine().Split(' ')[1];
+        Console.WriteLine("Digite o horário de início no formato 'HH:MM:SS': ");
+        string horarioInicio = Console.ReadLine();
+        
+        Leitura da data e hora de término
+        Console.WriteLine("Digite a data de término no formato 'dia DD': ");
+        string diaFim = Console.ReadLine().Split(' ')[1];
+        Console.WriteLine("Digite o horário de término no formato 'HH:MM:SS': ");
+        string horarioFim = Console.ReadLine();
+
+        Concatena data e hora para criar as strings completas de data
+        string dataHoraInicioStr = $"2024-04-{diaInicio}T{horarioInicio}";
+        string dataHoraFimStr = $"2024-04-{diaFim}T{horarioFim}";
+
+        Converte as strings para DateTime
+        DateTime dataHoraInicio = DateTime.Parse(dataHoraInicioStr);
+        DateTime dataHoraFim = DateTime.Parse(dataHoraFimStr);
+
+        Calcula a diferença entre as datas e horas
+        TimeSpan duracaoEvento = dataHoraFim - dataHoraInicio;
+
+        Exibe a duração do evento em dias, horas, minutos e segundos
+        Console.WriteLine($"O evento dura {duracaoEvento.Days} dia(s), {duracaoEvento.Hours} hora(s), {duracaoEvento.Minutes} minuto(s) e {duracaoEvento.Seconds} segundo(s).");
+    }
+}
